@@ -1,2 +1,2 @@
 # sql-string-injector
-QL string injector plugin for VS Code
+SQL string injector plugin for VS Code
