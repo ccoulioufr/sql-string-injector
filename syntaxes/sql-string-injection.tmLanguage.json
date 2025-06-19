@@ -1,0 +1,21 @@
+{
+  "scopeName": "injection.sql-in-string",
+  "injectionSelector": "L:source.sql",
+  "patterns": [
+    {
+      "name": "source.sql.embedded.sql",
+      "begin": "/\\*\\s*SQL\\s*\\*/\\s*'?",
+      "beginCaptures": {
+        "0": {
+          "name": "comment.block.sql"
+        }
+      },
+      "end": "'",
+      "patterns": [
+        {
+          "include": "source.sql"
+        }
+      ]
+    }
+  ]
+}
