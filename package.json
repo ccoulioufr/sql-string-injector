@@ -12,10 +12,12 @@
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
-    "commands": [
+    "grammars": [
       {
-        "command": "sql-string-injector.helloWorld",
-        "title": "Hello World"
+        "language": "sql",
+        "scopeName": "injection.sql-in-string",
+        "path": "./syntaxes/sql-string-injection.tmLanguage.json",
+        "injectTo": ["source.sql"]
       }
     ]
   },
@@ -37,13 +39,5 @@
     "typescript": "^5.8.3",
     "@vscode/test-cli": "^0.0.10",
     "@vscode/test-electron": "^2.5.2"
-  },
-  "grammars": [
-    {
-      "language": "sql",
-      "scopeName": "injection.sql-in-string",
-      "path": "./syntaxes/sql-string-injection.tmLanguage.json",
-      "injectTo": ["source.sql"]
-    }
-  ]
+  }
 }
