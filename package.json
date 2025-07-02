@@ -1,11 +1,15 @@
 {
   "name": "sql-string-injector",
+  "publisher": "tool2team",
   "displayName": "SQL string injector",
   "description": "SQL string injector extension for VS Code",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.101.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ccoulioufr/sql-string-injector"},
   "categories": [
     "Other"
   ],
@@ -18,8 +22,7 @@
         "path": "./syntaxes/sql-string-injection.tmLanguage.json",
         "injectTo": [
           "source.sql"
-        ],
-        "publisher": "tool2team"
+        ]
       }
     ]
   },
