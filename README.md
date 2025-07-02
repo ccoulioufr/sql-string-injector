@@ -1,71 +1,38 @@
 # sql-string-injector
 
-SQL string injector extension for VS Code
+VS Code extension to add SQL syntax highlighting inside string literals containing SQL, identified by the `/* SQL */` prefix.
 
-## Features
+## Main Feature
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+This extension detects string literals in your code that start with the `/* SQL */` prefix and automatically applies SQL syntax highlighting to their content. This makes SQL queries more readable and easier to edit directly within your source code.
 
-For example if there is an image subfolder under your extension project workspace:
+## Example
 
-\!\[feature X\]\(images/feature-x.png\)
+![SQL syntax highlighting example](example.png)
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+```js
+const query = `/* SQL */
+select lower(table_name), count(*) 
+    from user_tables t
+    join user_tab_cols c on c.table_name = t.table_name
+    where table_name = 'DUAL'
+    group by lower(table_name);`;
 
-## Requirements
+proc_with_sql_param(/* SQL */ 'select lower(table_name), count(*) 
+        from user_tables t
+        join user_tab_cols c on c.table_name = t.table_name
+        where table_name = :table_name
+        group by lower(table_name)',
+    'table_name' => 'DUAL');
+```
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+In this example, the SQL queries will be highlighted as if they were in a regular `.sql` file.
 
 ## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
 
 This extension contributes the following settings:
 
 * `sql-string-injector.enable`: Enable/disable this extension.
 * `sql-string-injector.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
 
 **Enjoy!**
