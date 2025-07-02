@@ -14,10 +14,9 @@
   "contributes": {
     "grammars": [
       {
-        "language": "sql",
         "scopeName": "injection.sql-in-string",
         "path": "./syntaxes/sql-string-injection.tmLanguage.json",
-        "injectTo": ["source.sql"]
+        "injectTo": [ "source.sql" ]
       }
     ]
   },

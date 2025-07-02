@@ -4,17 +4,23 @@
   "patterns": [
     {
       "name": "source.sql.embedded.sql",
-      "begin": "/\\*\\s*SQL\\s*\\*/\\s*'?",
+      "begin": "(/\\*\\s*SQL\\s*\\*/)(\\s*')",
       "beginCaptures": {
-        "0": {
-          "name": "comment.block.sql"
+        "1": {
+          "name": "comment.block"
+        },
+        "2": {
+          "name": "punctuation.definition.string.begin.sql"
         }
       },
       "end": "'",
-      "patterns": [
-        {
-          "include": "source.sql"
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.end.sql"
         }
+      },
+      "patterns": [
+        { "include": "source.sql" }
       ]
     }
   ]
