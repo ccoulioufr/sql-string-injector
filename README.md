@@ -10,20 +10,22 @@ This extension detects string literals in your code that start with the `/* SQL 
 
 ![SQL syntax highlighting example](example.png)
 
-```js
-const query = `/* SQL */
+```SQL
 select lower(table_name), count(*) 
     from user_tables t
     join user_tab_cols c on c.table_name = t.table_name
     where table_name = 'DUAL'
-    group by lower(table_name);`;
+    group by lower(table_name);
 
-proc_with_sql_param(/* SQL */ 'select lower(table_name), count(*) 
+begin
+    proc_with_sql_param(/* SQL */ 'select lower(table_name), count(*) 
         from user_tables t
         join user_tab_cols c on c.table_name = t.table_name
         where table_name = :table_name
         group by lower(table_name)',
     'table_name' => 'DUAL');
+end;
+/
 ```
 
 In this example, the SQL queries will be highlighted as if they were in a regular `.sql` file.
